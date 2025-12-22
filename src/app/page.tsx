@@ -2,6 +2,7 @@
 import { Header } from "./_components/header"
 import { Main } from "./_components/main"
 import PageWrapper from "./_components/pagewrapper"
+import Barra from "./_components/barra"
 
 
 export default function Home() {
@@ -9,6 +10,8 @@ export default function Home() {
     <PageWrapper>
       <Header />
       <Main />
+      <Barra />
     </PageWrapper>
+    
   )
 }

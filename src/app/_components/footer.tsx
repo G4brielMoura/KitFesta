@@ -1,8 +1,8 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { FaInstagram,  FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa"
-import Link from "next/link"
+import { FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa"
+import Image from "next/image"
 
 const socialLinks = [
   {
@@ -22,68 +22,46 @@ const socialLinks = [
   },
 ]
 
-// Nav links agora com rota explícita
-const navLinks = [
-  { label: "HOME", href: "/" },
-  { label: "QUEM SOMOS", href: "/about" },
-  { label: "SERVIÇOS", href: "/skills" },
-  { label: "SUPORTE", href: "/contato" },
-  { label: "CONTA", href: "/projetos" },
-  
-  // Exemplo adicional: { label: "ROOM", href: "/room" },
-]
-
 export default function Footer() {
   return (
     <motion.footer
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="bg-[#e5e5e5] p-20 text-[#0a3d62] px-6 sm:px-12 "
+      className="bg-[#e5e5e5] min-h-[320px] px-6 sm:px-12 flex items-center justify-center"
     >
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-10">
-        {/* Esquerda: Logo, Redes e Copyright */}
-        <div className="space-y-6 flex-1">
-          <div className="flex items-center text-[#0a3d62] text-lg font-semibold">
-            <span className="text-2xl">@</span>oceanlinkwork.com
-          </div>
+      {/* Bloco central */}
+      <div className="flex flex-col items-center justify-center text-center gap-8">
+        {/* LOGO */}
+        <Image
+          src="svg/mainlogo.svg" // ajuste se necessário
+          alt="GtapNG"
+          width={160}
+          height={48}
+          className="object-contain"
+          priority
+        />
 
-          <div className="flex gap-4">
-            {socialLinks.map(({ icon, href, color }, index) => (
-              <a
-                key={index}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#0a3d62] hover:scale-110 transition duration-300"
-                style={{ color: "black" }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = color)}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "white")}
-                aria-label={
-                  href.startsWith("mailto:") ? "Email" : `Link para ${href}`
-                }
-              >
-                <div className="text-xl">{icon}</div>
-              </a>
-            ))}
-          </div>
-
-          <p className="text-sm text-[#0a3d62] font-normal pt-4">© 2025.</p>
-        </div>
-
-        {/* Direita: Navegação */}
-        <div className="hidden md:flex flex-col gap-2 text-sm items-end">
-          {navLinks.map(({ label, href }, idx) => (
-            <Link
+        {/* Redes Sociais */}
+        <div className="flex gap-6">
+          {socialLinks.map(({ icon, href, color }, index) => (
+            <a
+              key={index}
               href={href}
-              key={idx}
-              className="relative group w-fit text-[#0a3d62] hover:text-[#0a3d6262] transition"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-black transition duration-300 hover:scale-110"
+              onMouseEnter={(e) => (e.currentTarget.style.color = color)}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "black")}
+              aria-label={`Link para ${href}`}
             >
-              {label}
-              <span className="absolute left-0 -bottom-1 h-[1px] w-0 bg-[#0a3d62] transition-all duration-300 group-hover:w-full"></span>
-            </Link>
+              <div className="text-xl">{icon}</div>
+            </a>
           ))}
         </div>
+
+        {/* Copyright */}
+        <p className="text-sm pr-2 text-[black] font-normal">© 2025</p>
       </div>
     </motion.footer>
   )

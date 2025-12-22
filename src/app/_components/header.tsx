@@ -9,8 +9,9 @@ import Image from "next/image"
 
 const links = [
   { href: "/", label: "HOME" },
-  { href: "/skills", label: "SERVIÇOS" },
+  { href: "/skills", label: "SOBRE" },
   { href: "/catalogo", label: "CATÁLOGO" },
+  { href: "/contato", label: "CONTATO" },
 ]
 
 export function Header() {
@@ -39,24 +40,24 @@ export function Header() {
       initial={{ y: 0 }}
       animate={{ y: showHeader ? 0 : "-100%" }}
       transition={{ duration: 0.4, ease: "easeInOut" }}
-      className="fixed inset-x-0 top-0 z-50 bg-[#e5e5e5] px-6 py-5  flex items-center justify-between text-white"
+      className="fixed inset-x-0 top-0 z-50 bg-[#fff] px-6 py-5  flex items-center justify-between text-white"
     >
       {/* Logo */}
       <motion.div
         animate={{ rotate: 360 }}
         transition={{ repeat: Infinity, duration: 8, ease: "linear" }}
       >
-        <Image src="/svg/logo.svg" alt="Logo" width={50} height={50} />
+        <Image src="/svg/logo.svg" alt="Logo" width={40} height={40} />
       </motion.div>
 
       {/* Botão menu mobile */}
       {!menuOpen && (
         <button
           onClick={() => setMenuOpen(true)}
-          className="md:hidden z-50"
+          className="md:hidden text-[black] z-50"
           aria-label="Abrir menu"
         >
-          <Menu size={32} />
+          <Menu size={30} />
         </button>
       )}
       {/* Navegação desktop */}
@@ -67,7 +68,7 @@ export function Header() {
             <Link
               key={href}
               href={href}
-              className="relative group transition text-[#0a3d62] hover:text-gray-400"
+              className="relative group transition text-[black] hover:text-gray-400"
             >
               <span className={`${isActive ? "text-gray-400" : ""}`}>
                 {label}
@@ -75,7 +76,7 @@ export function Header() {
 
               {/* Linha animada */}
               <span
-                className={`absolute left-0 -bottom-1 h-[2px] bg-[#0a3d62] transition-all duration-300 ease-in-out 
+                className={`absolute left-0 -bottom-1 h-[2px] bg-[black] transition-all duration-300 ease-in-out 
           ${isActive ? "w-full" : "w-0 group-hover:w-full"}`}
               />
             </Link>
@@ -92,11 +93,11 @@ export function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 bg-black/90 backdrop-blur-sm flex flex-col items-center justify-center gap-10 text-2xl font-semibold uppercase z-40"
+            className="fixed inset-0 bg-black/90   backdrop-blur-sm flex flex-col items-center justify-center gap-10 text-2xl font-semibold uppercase z-40"
           >
             <button
               onClick={() => setMenuOpen(false)}
-              className="absolute top-6 right-6"
+              className="absolute  top-6 right-6"
               aria-label="Fechar menu"
             >
               <X size={36} />

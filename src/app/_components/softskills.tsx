@@ -1,111 +1,171 @@
 "use client"
 
-import { motion, useAnimation, useInView, Variants } from "framer-motion"
-import { useEffect, useRef } from "react"
+import { motion, Variants } from "framer-motion"
 
-const hardSkills = [
-  { title: "Cadastro oficial" },
-  { title: "Catálogo de Espécie" },
-  { title: "Gestão de horários" },
-  { title: "Suporte técnico" },
-  { title: "OceanLink Company" },
-  { title: "Informações" },
+const steps = [
+  {
+    step: "01",
+    title: "Kit Festa Personalizado",
+    description:
+      "Desenvolvimento de kits completos criados a partir da sua ideia, com identidade visual exclusiva e atenção total aos detalhes.",
+  },
+  {
+    step: "02",
+    title: "Topos Decorativos",
+    description:
+      "Topos personalizados para bolos e doces, pensados para complementar o tema e valorizar a decoração da festa.",
+  },
+  {
+    step: "03",
+    title: "Painéis Temáticos",
+    description:
+      "Painéis decorativos personalizados que transformam o ambiente e criam cenários marcantes para fotos.",
+  },
+  {
+    step: "04",
+    title: "Caixas Personalizadas",
+    description:
+      "Caixas criativas e personalizadas para lembrancinhas, doces ou presentes, desenvolvidas sob medida.",
+  },
+  {
+    step: "05",
+    title: "Decorações Temáticas",
+    description:
+      "Criações completas baseadas em temas escolhidos, transformando ideias em experiências visuais únicas.",
+  },
+  {
+    step: "06",
+    title: "Datas Comemorativas",
+    description:
+      "Personalizados especiais para datas comemorativas, desenvolvidos com carinho para emocionar e surpreender.",
+  },
 ]
 
-const fadeInVariant = (direction: "left" | "right"): Variants => ({
-  hidden: {
-    opacity: 0,
-    x: direction === "left" ? -60 : 60,
+const containerVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+    },
   },
+}
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
-    x: 0,
+    y: 0,
     transition: {
-      duration: 1,
+      duration: 0.7,
       ease: "easeOut",
     },
   },
-})
+}
 
-const Section = ({
-  title,
-  description,
-  skills,
-  isSoft = true,
-}: {
-  title: string
-  description: string
-  skills: { title: string }[]
-  isSoft?: boolean
-}) => {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: false, amount: 0.2 })
-  const controls = useAnimation()
-
-  useEffect(() => {
-    controls.start(isInView ? "visible" : "hidden")
-  }, [isInView, controls])
-
+export default function ProcessSection() {
   return (
-    <section
-      ref={ref}
-      className="w-full mt-20 sm:mt-28 md:mt-40 select-none overflow-x-hidden py-8 md:py-2 px-4 sm:px-6 lg:px-20"
-    >
-      <div className="max-w-5xl mx-auto mb-6">
-        <motion.h2
-          initial="hidden"
-          animate={controls}
-          variants={fadeInVariant("left")}
-          className="text-3xl md:text-5xl font-semibold text-[#0a3d62] mb-2 tracking-tight"
-        >
-          {title}
-        </motion.h2>
-        <motion.p
-          initial="hidden"
-          animate={controls}
-          variants={fadeInVariant("right")}
-          className="text-sm md:text-base text-[#0a3d62] max-w-xl leading-relaxed"
-        >
-          {description}
-        </motion.p>
-      </div>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 max-w-5xl mx-auto">
-        {skills.map((skill, index) => {
-          const direction = index % 2 === 0 ? "left" : "right"
-
-          return (
-            <motion.div
-              key={skill.title}
-              initial="hidden"
-              animate={controls}
-              variants={fadeInVariant(direction)}
-              transition={{ delay: index * 0.08 }}
-              className="bg-[#0a3d62] hover:bg-[#0a3d62de] text-white select-none px-5 py-4 rounded-xl border border-[#0a3d62] shadow-sm hover:shadow-md transition-all duration-400"
-            >
-              <p className="text-sm md:text-base font-light tracking-wide leading-tight">
-                {skill.title}
+    <section className="w-full flex justify-center px-4 sm:px-6 lg:px-12 py-30">
+      {/* CONTAINER CENTRAL */}
+      <div className="w-full max-w-6xl">
+        <div className="bg-[black] rounded-3xl px-6 sm:px-10 lg:px-14 py-6">
+          {/* HEADER */}
+          <div className="flex flex-col lg:flex-row lg:items-center gap-6 mb-14">
+            <div>
+              <p className="text-xs uppercase tracking-widest text-white/60 mb-2">
+                Nossos Serviços
               </p>
-            </motion.div>
-          )
-        })}
+
+              <h2 className="text-3xl md:text-4xl font-semibold text-white leading-tight">
+                Veja Com Atenção!
+              </h2>
+            </div>
+
+            {/* LINHA */}
+            <div className="hidden lg:block flex-1 h-px bg-white/20 mt-6 lg:mt-13" />
+          </div>
+
+          {/* CARDS */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="
+              flex gap-4 overflow-x-auto snap-x snap-mandatory
+              sm:grid sm:grid-cols-2
+              lg:grid-cols-4
+              sm:overflow-visible
+              pb-4 mb-14
+              scrollbar-hide
+            "
+          >
+            {steps.map((item) => (
+              <motion.div
+                key={item.step}
+                variants={cardVariants}
+                className="
+                  snap-center
+                  min-w-[260px]
+                  sm:min-w-0
+                  bg-[#fff]
+                  rounded-2xl
+                  p-6
+                  border
+                  border-white/10
+                  min-h-[220px]
+                  flex
+                  flex-col
+                  transition-all
+                  duration-300
+                  hover:-translate-y-2
+                  hover:shadow-2xl
+                  hover:border-white/20
+                "
+              >
+                <span className="text-sm text-black/40 font-medium mb-3">
+                  {item.step}.
+                </span>
+
+                <h3 className="text-base font-semibold text-black mb-3">
+                  {item.title}
+                </h3>
+
+                <p className="text-sm text-black/70 leading-relaxed">
+                  {item.description}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* FOOTER */}
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+            {/* AVATARES */}
+            
+
+            {/* CTA */}
+            <a
+              href="/portfolio"
+              className="
+                inline-flex
+                items-center
+                justify-center
+                rounded-[14px]
+                bg-white
+                text-[black]
+                px-6
+                py-3
+                text-sm
+                font-semibold
+                transition-all
+                hover:scale-105
+                hover:shadow-lg
+              "
+            >
+              Ver Catalógo →
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   )
 }
-
-const SoftSkill = () => {
-  return (
-    <div className="bg-[#f2f3f5] w-full mb-30 select-none">
-      <Section
-        title="Pescadores"
-        description="Os pescadores dedicam-se com maestria à arte de capturar o peixe fresco, fruto de trabalho e tradição.
-Sua pesca sustenta comunidades inteiras e abastece mercados com sabor e vida do mar."
-        skills={hardSkills}
-        isSoft={false}
-      />
-    </div>
-  )
-}
-
-export default SoftSkill
