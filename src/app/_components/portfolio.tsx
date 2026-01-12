@@ -23,92 +23,18 @@ type CaseProps = CaseData & {
 
 const cases: CaseData[] = [
   {
-    title: "Camarão",
+    title: "Topos Personalizados",
     description:
-      "Símbolo das marés maranhenses, o camarão é um dos principais produtos da pesca e exportação. Presente em pratos tradicionais, é fonte de sustento para inúmeras famílias de pescadores.",
+      "Criamos topos personalizados com design profissional e acabamento cuidadoso. Transformamos suas ideias em peças únicas que valorizam cada celebração.",
     tag: "Portfólio Profissional",
-    images: ["/project/cam1.svg", "/project/cam2.svg", "/project/cam3.svg"],
-
-    pronto: true,
-  },
-  {
-    title: "Pescada-Amarela",
-    description:
-      "Peixe nobre e muito apreciado na culinária maranhense, a pescada-amarela possui carne branca, macia e sabor suave. É uma das espécies mais pescadas na costa do estado e muito valorizada tanto no mercado local quanto na exportação.",
-    tag: "Portfólio Profissional",
-    images: ["/project/pes1.svg", "/project/pes2.svg", "/project/pes3.svg"],
-
-    pronto: true,
-  },
-  {
-    title: "Pargo",
-    description:
-      "Conhecido por sua cor avermelhada e carne firme, o pargo é bastante procurado em restaurantes e feiras. Sua pesca é tradicional entre os pescadores maranhenses, que dominam as melhores épocas e pontos para capturá-lo.",
-    tag: "Portfólio Profissional",
-    images: ["/project/rose1.svg", "/project/rose2.svg", "/project/rose3.svg"],
-
-    pronto: true,
-  },
-  {
-    title: "Cavala",
-    description:
-      "De corpo alongado e sabor marcante, a cavala é ideal para grelhados e defumados. É uma espécie comum nas águas costeiras do Maranhão e tem grande importância econômica para os pescadores.",
-    tag: "Portfólio Profissional",
-    images: ["/project/cav1.svg", "/project/cav2.svg", "/project/cav3.svg"],
-
-    pronto: true,
-  },
-  {
-    title: "Tainha",
-    description:
-      "Peixe de escamas prateadas e carne saborosa, a tainha é encontrada em abundância nas regiões litorâneas. Além do consumo fresco, suas ovas são consideradas uma iguaria em várias partes do Brasil.",
-    tag: "Portfólio Profissional",
-    images: ["/project/tai1.svg", "/project/tai2.svg", "/project/tai3.svg"],
-
-    pronto: true,
-  },
-  {
-    title: "Serra",
-    description:
-      "Ágil e forte, o peixe-serra é famoso pelo sabor intenso e por ser muito utilizado em pratos típicos e peixadas maranhenses. É um dos preferidos dos pescadores por seu valor comercial.",
-    tag: "Portfólio Profissional",
-    images: ["/project/serr1.svg", "/project/serr2.svg", "/project/serr3.svg"],
-
-    pronto: true,
-  },
-  {
-    title: "Cação",
-    description:
-      "Espécie de pequeno tubarão, o cação é amplamente consumido na culinária local. Sua carne firme é usada em moquecas, ensopados e grelhados, sendo um produto constante nas feiras de peixe da região.",
-    tag: "Portfólio Profissional",
-    images: ["/project/tub1.svg", "/project/tub2.svg", "/project/tub3.svg"],
-
-    pronto: true,
-  },
-  {
-    title: "Carapeba",
-    description:
-      "Peixe de pequeno porte, muito presente nas águas rasas e manguezais maranhenses. Apesar do tamanho, tem grande aceitação pelo sabor e pela textura delicada da carne.",
-    tag: "Portfólio Profissional",
-    images: ["/project/cara1.svg", "/project/cara2.svg", "/project/cara3.svg"],
-
-    pronto: true,
-  },
-  {
-    title: "Corvina",
-    description:
-      "Com corpo prateado e carne de sabor suave, a corvina é uma das preferidas dos consumidores. É bastante encontrada na costa maranhense e muito usada em pratos tradicionais como caldeiradas e moquecas.",
-    tag: "Portfólio Profissional",
-    images: ["/project/cov1.svg", "/project/cov2.svg", "/project/cov3.svg"],
-
-    pronto: true,
-  },
-  {
-    title: "Bagre",
-    description:
-      "Muito conhecido nas águas do Maranhão, o bagre-prata é um peixe de carne branca e textura delicada, apreciado em várias receitas típicas. Além do consumo local, é amplamente comercializado e representa importante fonte de renda para as comunidades pesqueiras da região.",
-    tag: "Portfólio Profissional",
-    images: ["/project/bagre1.svg", "/project/bagre2.svg", "/project/bagre3.svg"],
+    images: [
+      "/project/1.svg",
+      "/project/2.svg",
+      "/project/3.svg",
+      "/project/4.svg",
+      "/project/5.svg",
+      "/project/6.svg",
+    ],
 
     pronto: true,
   },

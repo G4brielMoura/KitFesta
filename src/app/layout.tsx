@@ -2,7 +2,7 @@ import "./globals.css"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.mimosstudio.com.br"), // troque quando tiver o domínio
+  metadataBase: new URL("https://www.mimosstudio.com.br"),
 
   title: {
     default: "Mimos Studio | Presentes Criativos e Personalizados",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
       "Presentes personalizados e criativos feitos com carinho para tornar cada momento inesquecível.",
     images: [
       {
-        url: "/og-image.jpg", // crie essa imagem depois
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Mimos Studio - Presentes Personalizados",
@@ -72,8 +72,11 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
 
-  themeColor: "#0084ff", // troque pela cor da sua marca
   category: "ecommerce",
+}
+
+export const viewport = {
+  themeColor: "#0084ff",
 }
 
 export default function RootLayout({

@@ -5,7 +5,7 @@ import { motion, Variants } from "framer-motion"
 const steps = [
   {
     step: "01",
-    title: "Kit Festa Personalizado",
+    title: "Kit Festa Na Mesa",
     description:
       "Desenvolvimento de kits completos criados a partir da sua ideia, com identidade visual exclusiva e atenção total aos detalhes.",
   },
@@ -17,9 +17,9 @@ const steps = [
   },
   {
     step: "03",
-    title: "Painéis Temáticos",
+    title: "Etiquetas Escolares",
     description:
-      "Painéis decorativos personalizados que transformam o ambiente e criam cenários marcantes para fotos.",
+      "Etiquetas personalizadas para indentificar materiais escolares. Mais organização, praticidade e cuidado no dia a dia.",
   },
   {
     step: "04",
@@ -27,18 +27,7 @@ const steps = [
     description:
       "Caixas criativas e personalizadas para lembrancinhas, doces ou presentes, desenvolvidas sob medida.",
   },
-  {
-    step: "05",
-    title: "Decorações Temáticas",
-    description:
-      "Criações completas baseadas em temas escolhidos, transformando ideias em experiências visuais únicas.",
-  },
-  {
-    step: "06",
-    title: "Datas Comemorativas",
-    description:
-      "Personalizados especiais para datas comemorativas, desenvolvidos com carinho para emocionar e surpreender.",
-  },
+  
 ]
 
 const containerVariants: Variants = {
